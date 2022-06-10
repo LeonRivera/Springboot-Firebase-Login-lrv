@@ -1,21 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-
-    <!-- Compiled and minified JavaScript -->
-    <script
-      defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
-    ></script>
-  </head>
+  <head th:replace="fragments/head::head"> </head>
 
   <body>
     <div class="row">
@@ -25,6 +10,7 @@
             <img
               src="https://img.freepik.com/vector-gratis/ilustracion-concepto-sesion-movil_114360-135.jpg?w=2000"
               class="materialboxed"
+              alt="login image"
             />
             <span class="card-title">Login</span>
           </div>
@@ -48,7 +34,7 @@
                 />
                 <label for="inputPassword">Password</label>
               </div>
-              
+
               <button class="waves-effect waves-light btn" type="submit">
                 Sign in
               </button>
