@@ -16,22 +16,6 @@ import mx.com.leonrv.testfirebase.domain.Usuario;
 @Service
 public class UsuarioService implements IUsuarioService{
 
-    /*
-     * Coleccion = users
-     * Documento = nombreDelUsuario
-     * Cada documento contiene 
-     *          -id
-     *          -username
-     *          -password
-     * 
-     * colleccion -> documento
-     *                      -> propiedad
-     * users -> leon
-     *              ->id: 4
-     *              ->username: leon
-     *              ->password: leon12345
-     */
-
     @Override
     public Usuario getUsuario(String username) {
 
@@ -49,13 +33,15 @@ public class UsuarioService implements IUsuarioService{
             document = future.get();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
+            // Restore interrupted state...
+            Thread.currentThread().interrupt();
         }
 
         Usuario usuario = null;
 
 
         //si se encuentra el registro
-        if(document.exists()) {
+        if(document != null) {
             //convierte a un  objeto tipo Usuario.class
             usuario = document.toObject(Usuario.class);
             return usuario;
@@ -72,6 +58,8 @@ public class UsuarioService implements IUsuarioService{
             return collectionsApiFuture.get().getUpdateTime().toString();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
+            // Restore interrupted state...
+            Thread.currentThread().interrupt();
             return null;
         }
 

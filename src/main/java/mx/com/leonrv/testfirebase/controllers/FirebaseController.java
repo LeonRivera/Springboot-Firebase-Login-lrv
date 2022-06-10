@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import mx.com.leonrv.testfirebase.domain.Usuario;
 import mx.com.leonrv.testfirebase.services.IUsuarioService;
@@ -21,26 +19,8 @@ public class FirebaseController {
     @GetMapping("/")
     public String index(Model model){
         model.addAttribute("x", "x");
-        System.out.println("hola");
         return "index";
     }
-
-
-    // @GetMapping("/saludar")
-    // public String saludar(){
-
-
-
-    //     // usuarioService.saveUsuario(new Usuario("4", "rivera", "rivera12345"));
-
-    //     Usuario usuarioObtenido = usuarioService.getUsuario("leon");
-
-
-
-    //     System.out.println(usuarioObtenido);
-    //     return "Holaaaaaaa <3";
-    // }
-
 
     @PostMapping("/login")
     public String login(Usuario usuario, Model model){
